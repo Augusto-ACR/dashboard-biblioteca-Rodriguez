@@ -1,16 +1,15 @@
-import Racers from '@/components/Racers.vue'
-import Telemetry from '@/components/Telemetry.vue'
-import RaceDashboard from '@/pages/RaceDashboard.vue'
+import Libros from '@/components/Libros.vue'
+import Biblioteca from '@/components/Biblioteca.vue'
+import BibliotecaDashboard from '@/pages/BibliotecaDashboard.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/', component: RaceDashboard, children: [
-        { path: 'racers', component: Racers },
-        { path: 'telemetry', component: Telemetry },
-
+      path: '/', component: BibliotecaDashboard, children: [
+        { path: 'libros/nuevo', component: Libros },
+        {path: 'libros', component: Biblioteca},
       ]
     }
   ],

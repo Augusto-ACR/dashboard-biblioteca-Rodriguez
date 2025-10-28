@@ -8,10 +8,10 @@ const routeRef = ref(route)
 
 function pageTitle(): string {
     const pathSegment = routeRef.value.path.replace('/', '')
-    if (pathSegment === 'racers') {
-        return 'Pilotos'
+    if (pathSegment === 'libros') {
+        return 'Libros'
     } else {
-        return 'Telemetria'
+        return 'Biblioteca'
     }
 
 }
@@ -31,16 +31,14 @@ function pageTitle(): string {
             <header class="h-16 border-b border-zinc-700/60 bg-zinc-900 flex items-center justify-between px-6">
                 <h1 class="text-2xl font-semibold tracking-wide">{{ pageTitle() }}</h1>
                 <div class="flex items-center gap-4">
-                    <!-- Ejemplo: avatar o botones -->
-                    <button
-                        class="px-3 py-1.5 text-sm bg-zinc-800 rounded-md border border-zinc-700 hover:bg-zinc-700 transition">
-                        Configuración
-                    </button>
                 </div>
             </header>
 
             <!-- Content Area -->
             <section class="flex-1 p-6 overflow-y-auto bg-zinc-900">
+                Bienvenido a la biblioteca
+                seleccione una opción del menú
+                 
                 <RouterView />
             </section>
         </main>

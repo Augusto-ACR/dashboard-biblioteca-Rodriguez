@@ -2,14 +2,14 @@
 import type { Libro } from '@/models/libro'
 import { defineStore } from 'pinia'
 
-interface useBibliotecaStore {
+interface useBibliotecaState {
   isLoading: boolean
   data: Libro[]
   error: string | null
 }
 
-export const useRacersStore = defineStore('racers', {
-  state: (): useBibliotecaStore => ({
+export const useBibliotecaStore = defineStore('libros', {
+  state: (): useBibliotecaState => ({
     isLoading: true,
     data: [],
     error: null,
@@ -32,18 +32,19 @@ export const useRacersStore = defineStore('racers', {
 
     //  Agregar un nuevo libro
     addLibro(libro: Libro) {
-      const exists = this.data.some((l) => l.id === libro.id)
-      if (exists) {
-        this.error = `El libro con ID ${libro.id} ya existe`
-        return
-      }
+      // Ignoramos el id que venga del formulario y asignamos un id incremental
+      // id = max(id existente) + 1 (comienza en 1 si no hay libros)
+      const maxId = this.data.reduce((max, l) => Math.max(max, l.id), 0)
+      const newId = maxId + 1
+
+      const libroToAdd: Libro = { ...libro, id: newId }
 
       // Inicializamos páginas en "0" si no viene definido
-      if (!libro.paginas) libro.paginas = 0
+      if (!libroToAdd.paginas) libroToAdd.paginas = 0
 
-      this.data.push(libro)
+      this.data.push(libroToAdd)
       this.error = null
-      console.log(`✅ Libro agregado: ${libro.titulo} ${libro.autor}`)
+      console.log(`✅ Libro agregado (ID ${newId}): ${libroToAdd.titulo} ${libroToAdd.autor}`)
     },
 
     // Modificar el estado del libro
@@ -75,6 +76,5 @@ export const useRacersStore = defineStore('racers', {
     sortedByPaginas: (state): Libro[] => {
       return [...state.data].sort((a, b) => a.paginas - b.paginas)
     },
-
   },
 })
