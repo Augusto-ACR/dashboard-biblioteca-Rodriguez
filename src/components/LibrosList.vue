@@ -40,7 +40,7 @@ const buttonClass = (disponible: boolean) =>
 <template>
   <section class="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 shadow-lg text-zinc-200">
     <header class="mb-6 border-b border-zinc-700 pb-3 flex justify-between items-center">
-      <h2 class="text-2xl font-semibold tracking-wide">Lista de Pilotos</h2>
+      <h2 class="text-2xl font-semibold tracking-wide">Lista de libros</h2>
 
       <!-- 🔹 Selector de orden -->
       <select

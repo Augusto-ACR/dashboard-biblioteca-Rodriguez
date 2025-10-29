@@ -75,30 +75,6 @@ const handleSubmit = () => {
         />
       </div>
 
-<!--       <div class="flex flex-col">
-        <label class="text-zinc-400 text-lg mb-1" for="escuderia">Escudería</label>
-        <input
-          v-model="form.escuderia"
-          id="escuderia"
-          type="text"
-          class="bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          required
-        />
-      </div> -->
-
-<!--       <div class="flex flex-col">
-        <label class="text-zinc-400 text-lg mb-1" for="recordVuelta"
-          >Récord de vuelta (mm:ss:mmss)</label
-        >
-        <input
-          v-model="form.recordVuelta"
-          id="recordVuelta"
-          type="text"
-          placeholder="0"
-          class="bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div> -->
-
       <button
         type="submit"
         class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-lg transition-all"
